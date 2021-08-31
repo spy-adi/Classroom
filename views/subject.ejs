@@ -1,0 +1,85 @@
+<html>
+    <head>
+        <title>Apni Kaksha</title>
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+        <link rel="stylesheet" type="text/css" href="/style.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="ui fixed inverted blue menu">
+            <div class="ui container">
+                <div class="header item"><i class="edit icon"></i><a href="">Apni Kaksha</a></div>
+                <div class="header item"><a href="/classrooms">All Classrooms</a></div>
+            </div>
+            <div class="right menu">
+                <div class="header item"><a href="/logout">Logout</a></div>
+            </div>
+        </div>
+        <br><br><br>
+
+
+        <div id="content" class="container p-0">
+            <div class="profile-header">
+                
+                <div class="profile-header-cover"></div>
+                <div class="profile-header-content">
+                    <div class="profile-header-img">
+                        <img src="/images/book.jpg" alt="User Image" />
+                    </div>
+                    <div class="profile-header-info">
+                        <h4 class="m-t-sm"><%= cl.subjectCode%></h4>
+                        <p class="m-b-sm"><%= cl.subjectName%></p>
+                        <p class="m-b-sm"><%= cl.createdBy.username%></p>
+                        <div style="height: 25px"> </div>
+                        <div> </div>
+                    </div>
+                </div>
+        
+                <ul class="profile-header-tab nav nav-tabs">
+                    <li class="nav-item"><a href="#classes" class="nav-link" data-toggle="tab">Classrooms</a></li>
+                    <li class="nav-item"><a href="#grade-sheet" class="nav-link" data-toggle="tab">Grades</a></li>
+                    <li class="nav-item"><a href="#assignments" class="nav-link" data-toggle="tab">Assignments</a></li>
+                </ul>
+            </div>
+        
+
+            <!-- ================Teacher=================== -->
+            <div class="profile-container">
+                <div class="row row-space-20">
+                    <div class="col-md-8">
+                        <div class="tab-content p-0">
+                            <div class="tab-pane active show" id="grade-sheet">
+                                <div class="m-b-10"><b>Teacher</b></div>
+                                <ul>
+                                    <%cl.teachers.forEach(function(cl){%>
+                                    <li><%=cl.username%></li>
+                                    <%})%>
+                                    </ul>
+                            </div>                    
+                        </div>
+                    </div>
+    
+                </div>
+            </div>
+            <!-- ================Students=================== -->
+            <div class="profile-container">
+                <div class="row row-space-20">
+                    <div class="col-md-8">
+                        <div class="tab-content p-0">
+                            <div class="tab-pane active show" id="grade-sheet">
+                                <div class="m-b-10"><b>Student</b></div>
+                                <ul>
+                                    <%cl.students.forEach(function(cl){%>
+                                    <li><%=cl.username%></li>
+                                    <%})%>
+                                    </ul>
+                            </div>                    
+                        </div>
+                    </div>
+    
+                </div>
+            </div>
+        </div>
+
+    </body>
+    </html>
